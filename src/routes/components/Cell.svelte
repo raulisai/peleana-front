@@ -9,6 +9,7 @@
 
     let pieces=[pieceMusic, pieceGhost, pieceFire, pieceAdn];
 	  let isActive = false;
+    let InMove = false;
     let isPiece = false;
     $: clasCell = isActive
 		? 'cell bg-gradient-to-br from-blue-300 to-white border-gray-500 w-14 h-14 p-2 flex items-center justify-center transform hover:scale-110 transition-transform duration-300'
@@ -16,7 +17,12 @@
 
 let imgPlayer = $pieceActive.typePiece;
 
+$: if(InMove){
+  imgPlayer = imgPlayer
 
+}else{
+  imgPlayer = $pieceActive.typePiece;
+}
 
 
 
@@ -28,6 +34,7 @@ let imgPlayer = $pieceActive.typePiece;
       if($takeCell === 1){
         isPiece = true;
         takeCell.set(0);
+        InMove = true;
 
         piecePlayers.update(obj => {
       // Modifica el objeto según tus necesidades
