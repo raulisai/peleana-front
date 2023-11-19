@@ -4,6 +4,9 @@ export const turnoPlayer = writable('player1');
 export const takeCell = writable(0);
 export const cellACtive = writable(0);
 export const pieceActive = writable({
+    fromPlayer: '',
+    numbPiece: 0,
+    typePiece: 0,
     value: 0,
     row: 0,
     col: 0
@@ -18,27 +21,26 @@ export const piecePlayers = writable(
         pieces: [
             {
                 value: 1,
-                row: 0,
-                col: 0,
-                finish: false,
+                row: 6,
+                col: 1,
                 InInitialPosition: true
             },
             {
                 value: 2,
-                row: 0,
-                col: 0,
+                row: 7,
+                col: 1,
                 InInitialPosition: true
             },
             {
                 value: 3,
-                row: 0,
-                col: 0,
+                row: 8,
+                col: 1,
                 InInitialPosition: true
             },
             {
                 value: 4,
-                row: 0,
-                col: 0,
+                row: 9,
+                col: 1,
                 InInitialPosition: true
             }
         ]
@@ -49,26 +51,26 @@ export const piecePlayers = writable(
         pieces: [
             {
                 value: 1,
-                row: 0,
-                col: 0,
+                row: 14,
+                col: 6,
                 InInitialPosition: true
             },
             {
                 value: 2,
-                row: 0,
-                col: 0,
+                row: 14,
+                col: 7,
                 InInitialPosition: true
             },
             {
                 value: 3,
-                row: 0,
-                col: 0,
+                row: 14,
+                col: 8,
                 InInitialPosition: true
             },
             {
                 value: 4,
-                row: 0,
-                col: 0,
+                row: 14,
+                col: 9,
                 InInitialPosition: true
             }
         ]
@@ -79,25 +81,26 @@ export const piecePlayers = writable(
         pieces: [
             {
                 value: 1,
-                row: 0,
-                col: 0,
+                row: 6,
+                col: 14,
                 InInitialPosition: true
             },
             {
                 value: 2,
-                row: 0,
-                col: 0
+                row: 7,
+                col: 14,
+                InInitialPosition: true
             },
             {
                 value: 3,
-                row: 0,
-                col: 0,
+                row: 8,
+                col: 14,
                 InInitialPosition: true
             },
             {
                 value: 4,
-                row: 0,
-                col: 0,
+                row: 9,
+                col: 14,
                 InInitialPosition: true
             }
         ]
@@ -108,26 +111,26 @@ export const piecePlayers = writable(
         pieces: [
             {
                 value: 1,
-                row: 0,
-                col: 0,
+                row: 1,
+                col: 6,
                 InInitialPosition: true
             },
             {
                 value: 2,
-                row: 0,
-                col: 0,
+                row: 1,
+                col: 7,
                 InInitialPosition: true
             },
             {
                 value: 3,
-                row: 0,
-                col: 0,
+                row: 1,
+                col: 8,
                 InInitialPosition: true
             },
             {
                 value: 4,
-                row: 0,
-                col: 0,
+                row: 1,
+                col: 9,
                 InInitialPosition: true
             }
         ]

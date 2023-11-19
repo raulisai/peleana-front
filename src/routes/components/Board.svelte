@@ -2,7 +2,7 @@
 <script>
 	import Cell from './Cell.svelte';
 	import CenterComponent from './CenterComponente.svelte';
-  import CellPiece from './CellPiece.svelte';
+	import CellPiece from './CellPiece.svelte';
 
 	const boardShape = [
 		[9, 8, 7, 6, 5, 4, 3, 2, 1, 15, 14, 13, 12, 11, 10, 9],
@@ -28,12 +28,12 @@
 	{#each boardShape as row, rowIndex}
 		{#each row as cell, cellIndex}
 			{#if cell === 0}
-				<div class="cel w-14 h-14"></div>
+				<div class="cell w-14 h-14"></div>
 			{:else if cell === 20 || cell === 30 || cell === 40 || cell === 50}
-      <CellPiece value={cell} col={cellIndex} row={rowIndex} class="z-10" />
-      {:else}
-      <Cell value={cell} col={cellIndex} row={rowIndex} class="z-10" />
-        {/if}
+				<CellPiece value={cell} col={cellIndex} row={rowIndex} />
+			{:else}
+				<Cell value={cell} col={cellIndex} row={rowIndex} />
+			{/if}
 		{/each}
 	{/each}
 </div>

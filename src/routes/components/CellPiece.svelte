@@ -3,17 +3,27 @@
 	export let col;
 	export let row;
 	import { pieceMusic, pieceGhost, pieceFire, pieceAdn } from '$lib/pieces.js';
-	import {takeCell,pieceActive,cellACtive,piecePlayers,turnoPlayer} from '$lib/store.js';
+	import {takeCell,pieceActive,cellACtive,piecePlayers} from '$lib/store.js';
 
-	let pieces = [pieceMusic, pieceGhost, pieceFire, pieceAdn];
-	let players= {
-		20:"player1",
-		30:"player2",
-		40:"player3",
-		50:"player4"
-	};
-	$: isPiece = $piecePlayers[players[value]].pieces[value / 10 - 1];
+	let piece = [pieceMusic, pieceGhost, pieceFire, pieceAdn];
+	let players = ['player1', 'player2','player3','player4'];
+	let tipePiece = (value/10) - 2;
+	let textPlayer=players[tipePiece];
 	let isActive = false;
+	let ficha;
+
+   if(row === 1){
+	ficha= col-6;
+   }else if(col === 1){
+	ficha= row-6;
+   }else if(row === 14){
+	ficha= col-6;
+	}else if(col === 14){
+	ficha= row-6;
+	   }
+	
+
+
 
 	$: clasCell = isActive
 		? 'cell bg-gradient-to-br from-blue-300 to-white border-gray-500 w-14 h-14 p-2 flex items-center justify-center transform hover:scale-110 transition-transform duration-300'
@@ -27,7 +37,10 @@
 			takeCell.set(1);
 			cellACtive.set(value);
 			pieceActive.update(obj => {
-      // Modifica el objeto según tus necesidades
+      // Modi$pieceActiveca el objeto según tus necesidades	
+	  obj.fromPlayer=textPlayer,
+	  obj.numbPiece=$piecePlayers[textPlayer].pieces[ficha].value;
+	  obj.typePiece=tipePiece
       obj.value = value;
       obj.row = row;
       obj.col = col;
@@ -39,6 +52,9 @@
 			cellACtive.set(0);
 			pieceActive.update(obj => {
       // Modifica el objeto según tus necesidades
+	  obj.fromPlayer='',
+	  obj.numbPiece=0;
+	  obj.typePiece=0;
       obj.value = 0;
       obj.row = 0;
       obj.col = 0;
@@ -51,9 +67,9 @@
 	}
 </script>
 
-{#if isPiece}
+{#if $piecePlayers[textPlayer].pieces[ficha].InInitialPosition}
 	<button on:click={handleclick} class={clasCell}>
-		{@html pieces[value / 10 - 2]}
+		{@html piece[tipePiece]}
 	</button>
 {:else}
 	<div
