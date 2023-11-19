@@ -21,8 +21,6 @@
 	}else if(col === 14){
 	ficha= row-6;
 	   }
-	
-
 
 
 	$: clasCell = isActive
