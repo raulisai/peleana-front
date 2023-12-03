@@ -6,7 +6,7 @@
 	import boardShape from '$lib/sourceBoard.js';
 </script>
 
-<div class="board z-0 bg-[#B68D54]">
+<div class="board lg:mt-10 z-0 bg-[#B68D54]">
 	{#each boardShape as row, rowIndex}
 		{#each row as cell, cellIndex}
 			{#if cell === 0}

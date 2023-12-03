@@ -1,5 +1,6 @@
 import { writable } from 'svelte/store';
 
+export const gameStart = writable(false)
 export const turnoPlayer = writable('player1');
 export const takeCell = writable(0);
 export const cellACtive = writable(0);

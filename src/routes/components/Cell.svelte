@@ -3,7 +3,7 @@
 	export let value;
 	export let col;
 	export let row;
-	import { pieceMusic, pieceGhost, pieceFire, pieceAdn } from '$lib/pieces.js';
+	import { pieceMusic, pieceGhost, pieceFire, pieceAdn } from '$lib/Icons.js';
 	import { takeCell, turnoPlayer, piecePlayers, pieceActive } from '$lib/store.js';
 
 	let pieces = [pieceMusic, pieceGhost, pieceFire, pieceAdn];

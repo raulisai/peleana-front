@@ -6,7 +6,6 @@ class PoleanaGame {
   constructor() {
     this.board = boardShape;
     this.players= ['player1', 'player2','player3','player4'];
-    this.turn = turnoPlayer;
     this.winner = null;
   }
 

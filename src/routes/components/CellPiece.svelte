@@ -2,7 +2,7 @@
 	export let value;
 	export let col;
 	export let row;
-	import { pieceMusic, pieceGhost, pieceFire, pieceAdn } from '$lib/pieces.js';
+	import { pieceMusic, pieceGhost, pieceFire, pieceAdn } from '$lib/Icons.js';
 	import {takeCell,pieceActive,cellACtive,piecePlayers} from '$lib/store.js';
 
 	let piece = [pieceMusic, pieceGhost, pieceFire, pieceAdn];
