@@ -11,7 +11,7 @@ class PoleanaGame {
 
 
   initGame() {
-    
+     
   }
 
   movePiece() {
