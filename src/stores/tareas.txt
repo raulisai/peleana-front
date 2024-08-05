@@ -1,0 +1,9 @@
+tareas 
+
+validar que la ficha que tomas pertenece al jugador
+
+Que solo se tome la ficha si ya tiene algun dado chekeado
+
+que cambie de turno
+
+validar reglas
