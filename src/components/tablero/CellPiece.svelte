@@ -3,13 +3,14 @@
 	export let col;
 	export let row;
 	import { pieceMusic, pieceGhost, pieceFire, pieceAdn } from '$lib/Icons.js';
-	import {takeCell,pieceActive,cellACtive,piecePlayers} from '$stores/storeGame.js';
+	import {takeCell,turnoPlayer,pieceActive,cellACtive,piecePlayers} from '$stores/storeGame.js';
 
 	let piece = [pieceMusic, pieceGhost, pieceFire, pieceAdn];
 	let players = ['player1', 'player2','player3','player4'];
 	let tipePiece = (value/10) - 2;
 	let textPlayer=players[tipePiece];
 	let isActive = false;
+	let isPiece=true;
 	let ficha;
 
    if(row === 1){
@@ -28,10 +29,11 @@
 		: 'cell bg-gradient-to-br from-gray-300 to-white border-gray-500 w-1/16 h-1/16 p-2 flex items-center justify-center transform hover:scale-110 transition-transform duration-300';
 
 	function handleclick() {
-		
-		if($takeCell === 0 ||($pieceActive.row === row && $pieceActive.col === col) ){
-			isActive = !isActive;
+	
+		if(($takeCell === 0 ||($pieceActive.row === row && $pieceActive.col === col)) && tipePiece == $turnoPlayer){//se desactiva o activa la variable si se toca dos veces o una odnde no tenga nada seleccionado
+			isActive = !isActive;//desactivado
 		if (isActive) {
+			
 			takeCell.set(1);
 			cellACtive.set(value);
 			pieceActive.update(obj => {
@@ -60,7 +62,8 @@
     });
 		}
 		}else{
-			alert("Tienes una pieza activa");
+			tipePiece != $turnoPlayer ? alert("No son tu fichas") : alert("Tienes una pieza activa");
+			
 		}
 	}
 </script>

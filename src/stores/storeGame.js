@@ -1,9 +1,17 @@
 import { writable } from 'svelte/store';
 
 export const gameStart = writable(false)
-export const turnoPlayer = writable('player1');
+export const turnoPlayer = writable(0);// 0 es igual a player 1 y asi sucesivamente
 export const takeCell = writable(0);
 export const cellACtive = writable(0);
+
+export const dices = writable({
+  dice1: 0,
+  isChecked_dice1:false,
+  dice2: 0,
+  isChecked_dice2:false,
+  isPaired: false,
+});
 export const pieceActive = writable({
     fromPlayer: '',
     numbPiece: 0,
@@ -12,6 +20,7 @@ export const pieceActive = writable({
     row: 0,
     col: 0
   });
+
 
 
 export const piecePlayers = writable(
