@@ -20,7 +20,7 @@
 	{/each}
 </div>
 <!-- El centro del juego -->
-<div class="bg-black lg:w-1/2 md:w-3/5  sm:-mt-[60%]  2xl:-mt-[50%]  md:ml-28 lg:ml-52  z-10">
+<div class=" lg:w-1/2 md:w-3/5  sm:-mt-[60%]  2xl:-mt-[50%]  md:ml-28 lg:ml-52  z-10">
 	<CenterBoard />
 </div>
 

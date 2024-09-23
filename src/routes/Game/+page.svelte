@@ -3,6 +3,7 @@
 	import Board from '$components/tablero/Board.svelte';
 	import SiderLeft from '$components/menuGame/MenuGame.svelte';
 	import { onMount } from 'svelte';
+	import {turnoPlayer} from '$stores/storeGame.js';
 
    
 </script>
@@ -19,7 +20,9 @@
 {#if $gameStart}
 		
 		<section class="flex-1">
-			<div class=" lg:mx-20 w-[70%] lg:w-[80%] h-screen     ">
+			<h3>Player turno: <span>{$turnoPlayer}</span></h3>
+			<h2>Name room: <span>weed</span></h2>
+			<div class=" lg:mx-20 w-[100%] lg:w-[80%] h-screen     ">
 				<Board />
 			</div>
 			
