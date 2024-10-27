@@ -5,7 +5,9 @@
 
   let dice = [1, 1];
   let isRolling = false;
-  let selectedDice = [true, true];
+  let selectedDice = [false, false];
+  let NotisTurn = false;
+  let valueDice = 0;
 
   const diceIcons = [
     'M10 12a2 2 0 100-4 2 2 0 000 4z',
@@ -20,15 +22,37 @@
     isRolling = true;
     setTimeout(() => {
       dice = dice.map((value, index) => 
-        selectedDice[index] ? Math.floor(Math.random() * 6) + 1 : value
+        Math.floor(Math.random() * 6) + 1
       );
+      valueDice= 0;
+      selectedDice = [false, false];
       isRolling = false;
-    }, 1000);
+      NotisTurn = true;
+    }, 500);
+
+    
+    if (dice.every(die => die % 2 === 0)) {
+      alert("tiras de nuevo !");
+      NotisTurn = false;
+    }
   }
 
   function toggleDiceSelection(index) {
     selectedDice[index] = !selectedDice[index];
-    selectedDice = selectedDice;
+    if (selectedDice.every(selected => selected)) {
+      valueDice = dice.reduce((sum, current) => sum + current, 0);
+    }else{
+      if (!selectedDice[index]) {
+        valueDice -= dice[index];
+      } else {
+        valueDice += dice[index];
+      }
+    }
+    
+   
+    console.log(selectedDice);
+    console.log(selectedDice.every(selected => selected));
+    console.log(valueDice);
   }
 </script>
 
@@ -56,7 +80,7 @@
           <input 
             type="checkbox" 
             bind:checked={selectedDice[index]} 
-            on:change={() => toggleDiceSelection(index)}
+            on:click={() => toggleDiceSelection(index)}
             class="form-checkbox h-5 w-5 text-blue-600"
           >
           <span>Dado {index + 1}</span>
@@ -65,7 +89,7 @@
     </div>
     <button 
       on:click={rollDice} 
-      disabled={isRolling || !selectedDice.some(Boolean)}
+      disabled={NotisTurn}
       class="w-full bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline disabled:opacity-50 disabled:cursor-not-allowed"
     >
       {isRolling ? "Tirando..." : "Tirar dados"}
